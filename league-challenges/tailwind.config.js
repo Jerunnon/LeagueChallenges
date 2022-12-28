@@ -5,6 +5,10 @@ module.exports = {
     './page/**/*.{js,ts,jsx,tsx}',
     './ui/**/*.{js,ts,jsx,tsx}',
   ],
+  darkMode: 'class',
+  plugins: [
+    require("flowbite/plugin")
+  ],
   theme: {
     extend: {
       // https://vercel.com/design/color
@@ -16,6 +20,18 @@ module.exports = {
           orange: '#F5A623',
           violet: '#7928CA',
         },
+      },
+      maxWidth: {
+        10: '10%',
+        20: '20%',
+        30: '30%',
+        40: '40%',
+        50: '50%',
+        60: '60%',
+        70: '70%',
+        80: '80%',
+        90: '90%',
+        100: '100%',
       },
       keyframes: ({ theme }) => ({
         rerender: {
