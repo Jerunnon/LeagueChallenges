@@ -18,7 +18,7 @@ const Layout = ({ children }: {children: React.ReactNode}) => {
             <Navbar />
             <Sidebar />
 
-            <div id="content" className="py-12 px-24 mx-auto">
+            <div id="content" className="max-w-70 py-12 mx-auto">
                 {children}
             </div>
         </>
