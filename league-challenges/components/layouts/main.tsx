@@ -1,7 +1,7 @@
 import Head from "next/head";
 import React from "react";
 import { Navbar } from "../Navbar";
-import { Sidebar} from "../Sidebar";
+import { Sidebar } from "../Sidebar";
 
 const Layout = ({ children }: {children: React.ReactNode}) => {
     return (
@@ -13,8 +13,7 @@ const Layout = ({ children }: {children: React.ReactNode}) => {
                 <link rel="icon" type='image/png' href="/favicon.ico" />
                 <title>LC.GG - Dashboard</title>
             </Head>
-
-           
+            
             <Navbar />
             <Sidebar />
 

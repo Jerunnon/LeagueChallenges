@@ -1,14 +1,21 @@
-import type { AppProps } from "next/app"
-import '@/styles/globals.css'
-import Script from "next/script"
+import React from 'react'
 
-function MyApp({ Component, pageProps }: AppProps) {
+import type { AppProps } from "next/app"
+
+import '@/styles/globals.css'
+import Layout from "@/ui/layouts/main"
+
+import { ThemeProvider } from 'next-themes'
+
+const MyApp = ({ Component, pageProps }: AppProps) => {
+
     return (    
-      <>
-        <Script src="toggleColorTheme.js" defer />
-        <Component {...pageProps} />
-      </>
-      
+      <ThemeProvider attribute='class'>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </ThemeProvider>
+     
     )
   }
   

@@ -3,6 +3,7 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
   darkMode: 'class',
+  plugins: [require("daisyui")],
   content: [
     './app/**/*.{js,ts,jsx,tsx}',
     './page/**/*.{js,ts,jsx,tsx}',
@@ -24,7 +25,8 @@ module.exports = {
           200: '#212331'
         },
         'light': {
-          DEFAULT: '#cdc9b6'
+          DEFAULT: '#cdc9b6',
+          200: '#BDB89E'
         }
       },
       maxWidth: {
