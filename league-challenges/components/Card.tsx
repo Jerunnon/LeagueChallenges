@@ -2,11 +2,13 @@ import React from "react";
 
 import Image from "next/image";
 
-type CardProps = {
-    children: React.ReactNode,
-    className?: string | '',
-    width: string,
-};
+interface ICardComposition {
+    Body: React.FunctionComponent<{children: React.ReactNode[], align: string}>;
+    Heading: React.FunctionComponent<{title: string}>;
+    Text: React.FunctionComponent<{text: string}>;
+    Actions: React.FunctionComponent<{variant: string, text: string, children?: React.ReactNode | React.ReactNode[]}>
+    Image: React.FunctionComponent<{src: string, alt: string, className?: string}>
+}
 
 type variants = 'primary' | 'secondary' | 'accent';
 
@@ -20,53 +22,59 @@ function useCardContext() {
     return context;
 }
 
-const Card = ({children, className, width}: CardProps): JSX.Element => {
+const Card: React.FC<{children: React.ReactNode, width: string, className?: string}> & ICardComposition = props => {
     return (
         <CardContext.Provider value={{}}>
-            <div className={`card ${width} ${className} bg-light-200 dark:bg-space-200`}>
-                {children}
-            </div>
-        </CardContext.Provider>
+             <div className={`card ${props.width} ${props.className} bg-light-200 dark:bg-space-200`}>
+                 {props.children}
+             </div>
+       </CardContext.Provider>
     )
-};
+}
 
-Card.Body = function Body({children, align}: {children: React.ReactNode[], align?: string}) {
+const Body: React.FC<{children: React.ReactNode[], align: string}> = props => {
     return (
-        <div className={`card-body ${align} `}>
-            {...children}
+        <div className={`card-body ${props.align} `}>
+            {props.children}
         </div>
     )
-};
+}
 
-Card.Heading = function Heading({title}: {title: string}) {
+const Heading: React.FC<{title: string}> = props => {
     return (
-        <h2>{title}</h2>
+        <h2>{props.title}</h2>
     )
 };
 
-Card.Text = function Text({text}: {text: string}) {
+const Text: React.FC<{text: string}> = props => {
     return (
-        <p>{text}</p>
+        <p>{props.text}</p>
     )
 };
 
-Card.Actions = function Actions({text, variant, children}: {text: string, variant: variants, children?: React.ReactNode}) {
+const Actions: React.FC<{variant: string, text: string, children?: React.ReactNode | React.ReactNode[]}> = props => {
     return (
         <div className={`card-actions justify-end`}>
-            <button className={`btn btn-${variant}`}>{text}</button>
-            {children}
+            <button className={`btn ${props.variant}`}>{props.text}</button>
+            {props.children}
         </div>
     )
 };
 
-Card.Image = function CardImage({src, alt, className}: {src: string, alt: string, className?: string }) {
+const Img: React.FC<{src: string, alt: string, className?: string}> = props => {
     useCardContext();
 
     return (
         <figure className="w-full h-52 relative ">
-            <Image src={src} fill sizes="66vw" alt={alt} className={className} />
+            <Image src={props.src} fill sizes="66vw" alt={props.alt} className={props.className} />
         </figure>
     )
 };
 
-export default Card;
+Card.Body = Body;
+Card.Heading = Heading;
+Card.Text = Text;
+Card.Actions = Actions;
+Card.Image = Img;
+
+export { Card } ;
