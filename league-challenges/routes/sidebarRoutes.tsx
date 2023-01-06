@@ -1,14 +1,14 @@
 import DashboardIcon from '@heroicons/react/24/solid/Squares2X2Icon';
-import ArrowTrendingUpIcon from '@heroicons/react/24/solid/ArrowTrendingUpIcon';
+import ChartBarIcon from '@heroicons/react/24/solid/ChartBarIcon';
 import BoltIcon from '@heroicons/react/24/solid/BoltIcon'
 
 import LanguageIcon from '@heroicons/react/24/solid/LanguageIcon'
 import RandomIcon from '@heroicons/react/24/solid/QuestionMarkCircleIcon'
 
 const iconClasses = 'h-6 w-6';
-const subMenuIconClasses = 'h-5 w-5';
+const subMenuIconClasses = 'h-6 h-6 hidden group-hover:inline-block'
 
-interface IRoutes {
+export interface IRoutes {
     path: string,
     icon: JSX.Element,
     name: string,
@@ -30,17 +30,17 @@ const routes: IRoutes[] = [
     },
     {
         path: '/leaderboard',
-        icon: <ArrowTrendingUpIcon className={iconClasses} />,
+        icon: <ChartBarIcon className={iconClasses} />,
         name: 'Leaderboard'
     },
     {
         path: '',
-        icon: <BoltIcon className={iconClasses} />,
+        icon: <BoltIcon className={iconClasses} style={{flexShrink: '0'}} />,
         name: 'Challenges',
         subMenu: [
             {
                 path: '/challenges/Nuzlocke',
-                icon: undefined,
+                icon: <RandomIcon className={subMenuIconClasses} />,
                 name: 'NuzLocke'
             },
             {
@@ -51,7 +51,7 @@ const routes: IRoutes[] = [
             {
                 path: '/challenges/buildRandomizer',
                 icon: <RandomIcon className={subMenuIconClasses} />,
-                name: 'A-Z'
+                name: 'Build randomizer'
             },
         ]
     },
