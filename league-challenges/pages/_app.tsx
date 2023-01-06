@@ -7,6 +7,8 @@ import Layout from "@/ui/layouts/main"
 
 import { ThemeProvider } from 'next-themes'
 
+//TODO: add framer motion
+
 const MyApp = ({ Component, pageProps }: AppProps) => {
 
     return (    

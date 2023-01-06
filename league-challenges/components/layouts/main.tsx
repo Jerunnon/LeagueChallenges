@@ -1,7 +1,8 @@
+import * as React from 'react'
+
 import Head from "next/head";
-import React from "react";
 import { Navbar } from "../Navbar";
-import { Sidebar } from "../Sidebar";
+import Sidebar from '../Sidebar';
 
 const Layout = ({ children }: {children: React.ReactNode}) => {
     return (
