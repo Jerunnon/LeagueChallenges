@@ -31,7 +31,7 @@ const Layout = ({ children }: {children: React.ReactNode}) => {
             <Navbar />
             <Sidebar />
 
-            <div id="content" className="max-w-70 py-12 mx-auto">
+            <div id="content" className="max-w-70 mx-auto h-screen">
                 {children}
             </div>
         </motion.div>
