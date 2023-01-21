@@ -43,9 +43,7 @@ export const Navbar = () => {
                     <ChatBubbleIcon className="h-6 w-6" />
                     <NotificationsIcon className="h-6 w-6" />
                </div>
-                <CtaButton>
-                    <Link href='/login'>LogIn</Link>
-               </CtaButton>  
+               <label htmlFor="loginModal" className="btn">open modal</label>
             </div>
         </nav>
 
